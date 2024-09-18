@@ -23,6 +23,7 @@ void App::setup()
     engine_params::log_path = get_pref_path("dviglo2d", "minimal_app") + "log.log";
     engine_params::window_size = {900, 700};
     engine_params::msaa_samples = 4; // При значении 8 крэшится на сервере ГитХаба в Линуксе
+    engine_params::window_mode = WindowMode::windowed;
 }
 
 void App::start()

@@ -74,7 +74,7 @@ jobs:
           ARGS+=(-G "Visual Studio 17 2022")
         else
           ARGS+=(-G "MinGW Makefiles")
-          # Для MinGW тип сбоки задаётся при генерации проектов
+          # Для MinGW тип сборки задаётся при генерации проектов
           ARGS+=(-D CMAKE_BUILD_TYPE=${{ matrix.BUILD_TYPE }})
         fi
 
@@ -89,7 +89,7 @@ jobs:
 
         if [ "${{ matrix.COMPILER }}" == "vs" ]
         then
-          # Для Visual Studio тип сбоки задаётся при компиляции проектов
+          # Для Visual Studio тип сборки задаётся при компиляции проектов
           ARGS+=(--config ${{ matrix.BUILD_TYPE }})
         fi
 

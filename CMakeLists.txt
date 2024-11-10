@@ -6,16 +6,16 @@ include(${engine_dir}/cmake/cmake_min_version.cmake)
 cmake_minimum_required(VERSION ${dv_cmake_min_version})
 
 # Название проекта
-project(game)
+project(app)
 
 # Подключаем директорию с движком
 include(${engine_dir}/cmake/common.cmake)
 add_subdirectory(${engine_dir} dviglo2d)
 
 # Название таргета
-set(target_name game)
+set(target_name app)
 
-# Папка для скомпилированной игры
+# Папка для скомпилированного приложения
 set(result_dir "${CMAKE_BINARY_DIR}/result")
 
 # Создаём папку result
@@ -55,10 +55,10 @@ foreach(dir_name ${dir_names})
     endif()
 endforeach()
 
-# Копируем папку с ресурсами игры в result, если нужно
-if(NOT EXISTS ${result_dir}/game_data)
-    message("!!!!!!!!! COPY ${CMAKE_SOURCE_DIR}/result/game_data TO ${result_dir}/game_data")
-    dv_create_dir_link(${CMAKE_SOURCE_DIR}/result/game_data ${result_dir}/game_data)
+# Копируем папку с ресурсами приложения в result, если нужно
+if(NOT EXISTS ${result_dir}/app_data)
+    message("!!!!!!!!! COPY ${CMAKE_SOURCE_DIR}/result/app_data TO ${result_dir}/app_data")
+    dv_create_dir_link(${CMAKE_SOURCE_DIR}/result/app_data ${result_dir}/app_data)
 endif()
 
 # Добавляем приложение в список тестируемых
@@ -68,5 +68,5 @@ add_test(NAME ${target_name} COMMAND ${target_name} -duration 5)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/src FILES ${source_files})
 
 # В Visual Studio таргет будет назначен стартовым вместо ALL_BUILD,
-# чтобы потом не делать это вручную при отладке игры
+# чтобы потом не делать это вручную при отладке приложения
 set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${target_name})

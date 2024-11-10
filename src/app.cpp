@@ -32,7 +32,7 @@ void App::start()
     texture_ = DV_TEXTURE_CACHE->get(base_path + "samples_data/textures/tile128.png");
     sprite_batch_ = make_unique<SpriteBatch>();
     r_20_font_ = make_unique<SpriteFont>(base_path + "samples_data/fonts/ubuntu-r_20_simple.fnt");
-    my_font_ = make_unique<SpriteFont>(base_path + "game_data/fonts/my_font.fnt");
+    my_font_ = make_unique<SpriteFont>(base_path + "app_data/fonts/my_font.fnt");
 }
 
 void App::handle_sdl_event(const SDL_Event& event)
